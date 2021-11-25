@@ -163,8 +163,7 @@
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:onClick="cancelClicked"
-                android:text="Cancel"
-                android:textColor="#FFFFFF" />
+                android:text="Cancel"/>
 
             <Button
                 android:id="@+id/saveButton"
@@ -173,8 +172,7 @@
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:onClick="saveClicked"
-                android:text="Save"
-                android:textColor="#FFFFFF" />
+                android:text="Save" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Charity">
         <activity
+            android:name=".activity.DonationActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyAccountActivity"
             android:exported="false" />
         <activity

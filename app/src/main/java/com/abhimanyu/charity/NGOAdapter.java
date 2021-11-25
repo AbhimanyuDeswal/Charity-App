@@ -1,11 +1,18 @@
 package com.abhimanyu.charity;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.abhimanyu.charity.activity.DonationActivity;
 
 import java.util.List;
 
@@ -33,6 +40,20 @@ public class NGOAdapter extends RecyclerView.Adapter<NGOAdapter.NGOViewholder>{
         holder.phone.setText(model.getPhone());
         holder.email.setText(model.getEmail());
         holder.location.setText(model.getLocation());
+
+        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DonationActivity.class);
+                intent.putExtra("name", model.getName());
+                intent.putExtra("cause", model.getCause());
+                intent.putExtra("phone", model.getPhone());
+                intent.putExtra("email", model.getEmail());
+                intent.putExtra("location", model.getLocation());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -43,6 +64,7 @@ public class NGOAdapter extends RecyclerView.Adapter<NGOAdapter.NGOViewholder>{
 
     class NGOViewholder extends RecyclerView.ViewHolder {
         TextView name, cause, phone, email, location;
+        CardView parentLayout;
         public NGOViewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -52,6 +74,8 @@ public class NGOAdapter extends RecyclerView.Adapter<NGOAdapter.NGOViewholder>{
             phone = itemView.findViewById(R.id.phone);
             email = itemView.findViewById(R.id.email);
             location = itemView.findViewById(R.id.location);
+
+            parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }
 }
