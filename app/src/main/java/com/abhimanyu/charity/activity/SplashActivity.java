@@ -1,4 +1,4 @@
-package com.abhimanyu.charity;
+package com.abhimanyu.charity.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
