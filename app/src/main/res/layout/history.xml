@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="16dp"
-                    android:text="Amount"/>
+                    android:text="Note"/>
                 <TextView
                     android:id="@+id/amountHistory"
                     android:layout_width="0dp"

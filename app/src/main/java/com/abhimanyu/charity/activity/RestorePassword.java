@@ -21,7 +21,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RestorePassword extends AppCompatActivity {
 
-    Button resetbtn;
     EditText useremail;
     private FirebaseAuth mAuth;
     private ProgressDialog pd;

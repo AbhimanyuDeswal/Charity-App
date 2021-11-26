@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.abhimanyu.charity.BuildConfig;
 import com.abhimanyu.charity.History;
 import com.abhimanyu.charity.HistoryAdapter;
 import com.abhimanyu.charity.NGO;
@@ -50,7 +51,7 @@ public class HistoryActivity extends AppCompatActivity {
 
 
 
-        FirebaseDatabase.getInstance("https://charity-app-android-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("History").child(uid).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance(BuildConfig.database_url).getReference().child("History").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 historyList.clear();

@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abhimanyu.charity.BuildConfig;
 import com.abhimanyu.charity.History;
 import com.abhimanyu.charity.R;
+import com.abhimanyu.charity.ThankyouActivity;
 import com.abhimanyu.charity.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -74,7 +77,7 @@ public class DonationActivity extends AppCompatActivity {
         }
 
         uid = user.getUid();
-        databaseReference = FirebaseDatabase.getInstance("https://charity-app-android-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("History").child(uid).push();
+        databaseReference = FirebaseDatabase.getInstance(BuildConfig.database_url).getReference().child("History").child(uid).push();
 
 
     }
@@ -94,8 +97,10 @@ public class DonationActivity extends AppCompatActivity {
             databaseReference.setValue(history).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Donated", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
+                    Intent intent = new Intent(context, ThankyouActivity.class);
+                    startActivity(intent);
                     finish();
 
                 }

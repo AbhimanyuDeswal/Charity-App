@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new NGOAdapter(NGOList);
         recyclerView.setAdapter(adapter);
 
-        FirebaseDatabase.getInstance("https://charity-app-android-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("NGO").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance(BuildConfig.database_url).getReference().child("NGO").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 NGOList.clear();
