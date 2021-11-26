@@ -86,6 +86,7 @@
                 android:layout_margin="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/donate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="What to you want to Donate?" />
@@ -98,6 +99,7 @@
                 android:layout_margin="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/amount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Amount" />
@@ -115,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
+                android:onClick="cancelClicked"
                 android:text="Cancel"/>
 
             <Button
@@ -123,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
+                android:onClick="proceedClicked"
                 android:text="Proceed" />
         </LinearLayout>
 

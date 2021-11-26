@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.abhimanyu.charity.activity.HistoryActivity;
 import com.abhimanyu.charity.activity.UserAccountActivity;
 import com.abhimanyu.charity.activity.UserEmailLoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -49,6 +50,11 @@ public class MyAccountActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void historyClicked(View view) {
+        Intent intent = new Intent(this, HistoryActivity.class);
+        startActivity(intent);
+    }
+
     public void logoutClicked(View view) {
         new AlertDialog.Builder(this)
                 .setTitle("Logout")
@@ -65,4 +71,6 @@ public class MyAccountActivity extends AppCompatActivity {
                 .setNegativeButton("No", null)
                 .show();
     }
+
+
 }

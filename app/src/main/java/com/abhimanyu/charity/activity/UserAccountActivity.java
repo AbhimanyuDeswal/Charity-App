@@ -33,7 +33,7 @@ public class UserAccountActivity extends AppCompatActivity {
             houseET, areaET, cityET, stateET, pincodeET;
     String name, phone, email,
             house, area, city, state, pincode;
-    Button cancelButton, saveButton;
+
     ProgressDialog progressDialog;
     String uid;
     DatabaseReference databaseReference;
@@ -65,14 +65,11 @@ public class UserAccountActivity extends AppCompatActivity {
         stateET = findViewById(R.id.stateET);
         pincodeET = findViewById(R.id.pincodeET);
 
-        cancelButton = findViewById(R.id.cancelButton);
-        saveButton = findViewById(R.id.saveButton);
-
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("Saving...");
 
         uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
+        databaseReference = FirebaseDatabase.getInstance("https://charity-app-android-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users").child(uid);
 
         if (uid != null) {
             loadData();
